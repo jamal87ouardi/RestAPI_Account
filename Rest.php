@@ -15,23 +15,26 @@ function getConnection() {
 
 }
 
-function insertMovie($data){ 		
-	$movieId=$data["id"];
-	$movieTitle=$data["title"];
-	$movieImg=$data["image"];
+function insertAccount($data){ 		
+	$nom=$data["nom"];
+	$prenom=$data["prenom"];
+	$mail=$data["mail"];
+	$pass=$data["pass"];
+
 	
 	$query="
-		INSERT INTO Movie
-		SET id='".$movieId."', 
-		title='".$movieTitle."', 
-		image='".$movieImg."'
+		INSERT INTO Compte
+		SET nom='".$nom."', 
+		prenom='".$prenom."', 
+		mail='".$mail."',
+		motDePasse='".$pass."'
 		";
 	
     if( mysqli_query($this->getConnection(), $query)) {
-		$messgae = "Movie added Successfully.";
+		$messgae = "Account added Successfully.";
 		$status = 1;			
 	} else {
-		$messgae = "Movie added failed.";
+		$messgae = "Account added failed.";
 		$status = 0;			
 	}
 	$empResponse = array(
